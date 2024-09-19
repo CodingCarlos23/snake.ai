@@ -50,7 +50,7 @@ class SnakeGame:
         self.snake = [new_head] + self.snake[:-1]
 
         if new_head == self.food:
-            self.snake.append(self.snake[-1])
+            self.snake.append(self.snake[-1])  
             self.score += 1
             self.spawn_food()
 
@@ -60,7 +60,8 @@ class SnakeGame:
                      random.randint(0, (self.height // GRID_SIZE) - 1) * GRID_SIZE)
 
     def render(self):
-        self.screen.fill((0, 0, 0))
+        self.screen.fill((0, 0, 0))  
         for segment in self.snake:
             pygame.draw.rect(self.screen, (0, 255, 0), (*segment, GRID_SIZE, GRID_SIZE))
         pygame.draw.rect(self.screen, (255, 0, 0), (*self.food, GRID_SIZE, GRID_SIZE))
+        pygame.display.flip()  
