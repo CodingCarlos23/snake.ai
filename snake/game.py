@@ -12,6 +12,9 @@ class SnakeGame:
         self.direction = (10, 0)
         self.food = (300, 200)
         self.score = 0
+        
+        # Initialize the font for the score display
+        self.font = pygame.font.SysFont('Arial', 24)
 
     def run(self):
         while self.running:
@@ -61,7 +64,16 @@ class SnakeGame:
 
     def render(self):
         self.screen.fill((0, 0, 0))  
+
+        # Draw snake
         for segment in self.snake:
             pygame.draw.rect(self.screen, (0, 255, 0), (*segment, GRID_SIZE, GRID_SIZE))
+        
+        # Draw food
         pygame.draw.rect(self.screen, (255, 0, 0), (*self.food, GRID_SIZE, GRID_SIZE))
-        pygame.display.flip()  
+        
+        # Render the score
+        score_text = self.font.render(f'Score: {self.score}', True, (255, 255, 255))
+        self.screen.blit(score_text, (10, 10))
+        
+        pygame.display.flip()

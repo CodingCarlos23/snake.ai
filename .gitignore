@@ -1,0 +1,5 @@
+venv/
+snake/__pycache__/
+__pycache__/
+snake/__pycache__/*.pyc
+snake/__pycache__/
